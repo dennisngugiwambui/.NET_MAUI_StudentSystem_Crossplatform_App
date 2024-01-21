@@ -1,0 +1,71 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentSystem.MainPage">
+
+    <ScrollView>
+        <StackLayout Padding="16" BackgroundColor="#f5f5f5">
+
+            <!-- Header View -->
+            <Frame HeightRequest="128" BackgroundColor="#4CAF50" CornerRadius="8" HasShadow="False">
+                <StackLayout>
+                    <Label Text="Welcome, Student" TextColor="White" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="{Binding TodayDate}" TextColor="White" FontSize="16" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Toolbar -->
+            <StackLayout Orientation="Horizontal" Margin="0,16,0,0">
+                <ImageButton x:Name="backB" Source="ic_back" BackgroundColor="#4CAF50" CornerRadius="8" Padding="8"/>
+                <Label Text="WGU STUDENTS" FontSize="28" TextColor="#4CAF50" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                <ImageButton x:Name="logOutB" Source="ic_logout" BackgroundColor="#4CAF50" CornerRadius="8" Padding="8"/>
+            </StackLayout>
+
+            <!-- User Profile Card -->
+            <Frame BackgroundColor="White" CornerRadius="8" HasShadow="True" Margin="0,16,0,16">
+                <StackLayout Padding="16">
+                    <!-- Add student avatar -->
+                    <Image Source="Images/avatar.jpg" HeightRequest="80" WidthRequest="80" Aspect="AspectFill" HorizontalOptions="Center" BackgroundColor="Orange" VerticalOptions="CenterAndExpand" Margin="0,0,0,16"/>
+                    <Label Text="FIRSTNAME LASTNAME" TextColor="#4CAF50" FontSize="20" FontAttributes="Bold"/>
+                    <Label Text="College Name" TextColor="#777" FontSize="16"/>
+                    
+                    <ImageButton x:Name="profileB" BackgroundColor="#4CAF50" CornerRadius="8" Padding="8" Margin="0,8,0,0"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Dashboard Sections -->
+            <Frame BackgroundColor="#FFFFFF" CornerRadius="8" HasShadow="True" Margin="0,0,0,16">
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTermFrameTapped" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="term.jpg" />
+                    <Label Text="Term" TextColor="#4CAF50" FontSize="20" FontAttributes="Bold" Margin="16,8,0,0"/>
+                </StackLayout>
+
+            </Frame>
+
+            <Frame BackgroundColor="#FFFFFF" CornerRadius="8" HasShadow="True" Margin="0,0,0,16">
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCourseFrameTapped" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="term.jpg" />
+                    <Label Text="Course" TextColor="#4CAF50" FontSize="20" FontAttributes="Bold" Margin="16,8,0,0"/>
+                    <!-- Add Course Content here -->
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#FFFFFF" CornerRadius="8" HasShadow="True" Margin="0,0,0,16">
+                <StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAssessmentFrameTapped" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="term.jpg" />
+                    <Label Text="Assessment" TextColor="#4CAF50" FontSize="20" FontAttributes="Bold" Margin="16,8,0,0"/>
+                    <!-- Add Assessment Content here -->
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

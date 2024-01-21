@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="StudentSystem.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:StudentSystem"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.TabBarIsVisible="False"
+    Title="StudentSystem"
+    ForegroundColor="#2196F3" >
+
+    <Shell.Resources>
+        <Style x:Key="FlyoutItemStyle" TargetType="Grid">
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Visual" Value="{StaticResource MaterialVisual}" />
+        </Style>
+
+        
+    </Shell.Resources>
+
+
+
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor="#2196F3" Padding="16">
+            <Image Source="dotnt_png.png" WidthRequest="100" HorizontalOptions="Center"/>
+            <Label Text="Flayout Header" HorizontalTextAlignment="Center" TextColor="White"></Label>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <StackLayout BackgroundColor="#2196F3" Padding="16">
+            <Image Source="dotnt_png.png" WidthRequest="100" HorizontalOptions="Center"/>
+            <Label Text="Flayout Footer" HorizontalTextAlignment="Center" TextColor="White"></Label>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+
+
+    <FlyoutItem Title="Dashboard" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" Icon="dotnet_bot.png" />
+        <ShellContent
+            Title="Term" 
+            ContentTemplate="{DataTemplate local:Term}"
+            Route="Term" Icon="dotnet_bot.png" />
+        <ShellContent
+            Title="Assessment"
+            ContentTemplate="{DataTemplate local:Assesment}"
+            Route="Assesment" Icon="dotnet_bot.png" />
+        <ShellContent
+            Title="Course"
+            ContentTemplate="{DataTemplate local:Course}"
+            Route="Course" Icon="dotnet_bot.png" />
+    </FlyoutItem>
+</Shell>

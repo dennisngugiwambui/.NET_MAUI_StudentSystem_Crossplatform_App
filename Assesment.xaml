@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentSystem.Assesment"
+             Title="Assesment">
+    <ScrollView>
+        <NavigationPage.TitleView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                <ImageButton Source="ic_back" BackgroundColor="Transparent" Clicked="OnBackButtonClicked"/>
+            </StackLayout>
+        </NavigationPage.TitleView>
+        <StackLayout BackgroundColor="#f5f5f5">
+            <!-- Fancy Top Side -->
+            <Frame HeightRequest="128" BackgroundColor="#4CAF50" CornerRadius="8" HasShadow="False">
+                <StackLayout>
+                    <Label Text="Welcome, Student" TextColor="White" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="{Binding TodayDate}" TextColor="White" FontSize="16" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#2C3E50" HeightRequest="50" CornerRadius="8" Padding="10" Margin="0,0,0,10">
+                <Label Text="Assessment Form" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+            </Frame>
+
+            <!-- Form Section -->
+            <Frame BackgroundColor="White" CornerRadius="8" HasShadow="True" Margin="10,0,10,10">
+                <StackLayout Padding="16">
+                    <!-- Assessment Date -->
+                    <Label Text="Assessment Date" TextColor="#3498DB" FontSize="16"/>
+                    <DatePicker x:Name="assessmentDatePicker" Date="{Binding AssessmentDate}" Format="D" Margin="0,0,0,16" />
+
+                    <!-- Assessment Type -->
+                    <Label Text="Assessment Type" TextColor="#3498DB" FontSize="16"/>
+                    <Picker x:Name="assessmentTypePicker" Title="Select Assessment Type" Margin="0,0,0,16">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>objective</x:String>
+                                <x:String>perfomance</x:String>
+                                
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <!-- Assessment Information -->
+                    <Label Text="Assessment Info" TextColor="#3498DB" FontSize="16"/>
+                    <Entry x:Name="assessmentInfo" Placeholder="Enter assessment Information" Margin="0,0,0,16"/>
+
+                    <!-- Assessment Type -->
+                    <Label Text="Assessment Notification" TextColor="#3498DB" FontSize="16"/>
+                    <Picker x:Name="assessmentNotification" Title="Select Notification" Margin="0,0,0,16">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>YES</x:String>
+                                <x:String>NO</x:String>
+
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+
+                    <!-- Save Button -->
+                    <Button Text="Save" x:Name="Save" BackgroundColor="#3498DB" TextColor="White" CornerRadius="8" Clicked="OnSaveClicked"/>
+                </StackLayout>
+            </Frame>
+
+
+            <!-- Record Section -->
+            <Frame BackgroundColor="#FFFFFF" CornerRadius="8" HasShadow="True">
+                <StackLayout>
+                    <!-- Table Header -->
+                    <Grid BackgroundColor="#3498DB" Padding="8,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <!-- Add two columns for buttons -->
+                        </Grid.ColumnDefinitions>
+                        <Label Text="#" TextColor="White"  FontSize="16" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Grid.Column="0"/>
+                        <Label Text="Assesment" TextColor="White"  FontSize="16" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Grid.Column="1"/>
+                        <Label Text="AssessmentType" TextColor="White" FontSize="16" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Grid.Column="2"/>
+                        <Label Text="" Grid.Column="4"/>
+                        <!-- Empty column for spacing -->
+                    </Grid>
+
+
+                    <!-- ListView for displaying records -->
+                    <!-- ListView for displaying records -->
+                    <ListView x:Name="recordsListView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- Column for "Delete" and "Update" buttons -->
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding ID}" Grid.Column="0"/>
+                                        <Label Text="{Binding AssessmentDate}" Grid.Column="1"/>
+                                        <Label Text="{Binding AssessmentType}" Grid.Column="2"/>
+
+                                        <!-- Delete Button -->
+                                        <Button Text="Del" BackgroundColor="#E74C3C" TextColor="White" Clicked="OnDeleteClicked" CommandParameter="{Binding AssessmentType}" Grid.Column="3"/>
+
+                                        <!-- Update Button -->
+                                        <Button Text="Update" BackgroundColor="#3498DB" TextColor="White" Clicked="OnUpdateClicked" CommandParameter="{Binding AssessmentType}" Grid.Column="4"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <!-- Message if no records -->
+                    <Label x:Name="recordsLabel" Text="No records available" TextColor="#777" FontSize="16" Margin="16,8,0,16"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+
+
+</ContentPage>

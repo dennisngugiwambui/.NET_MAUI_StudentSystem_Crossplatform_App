@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentSystem.Profile"
+             Title="Profile">
+    <StackLayout Margin="20">
+
+        <!-- Profile Image -->
+        <Image Source="avatar.png"
+               HeightRequest="100"
+               WidthRequest="100"
+               Aspect="AspectFill"
+               Margin="0,0,0,10"/>
+
+        <!-- Student Information -->
+        <StackLayout>
+            <Label Text="Student Name"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   Margin="0,0,0,5"/>
+
+            <Label Text="Course Name"
+                   FontSize="16"
+                   Margin="0,0,0,5"/>
+
+            <Label Text="Year of Study"
+                   FontSize="16"
+                   Margin="0,0,0,5"/>
+
+            <Label Text="Term"
+                   FontSize="16"
+                   Margin="0,0,0,5"/>
+        </StackLayout>
+
+        <!-- Status Indicator -->
+        <StackLayout Orientation="Horizontal" VerticalOptions="End">
+            <Label Text="Status: "
+                   FontSize="16"
+                   VerticalOptions="Center"/>
+            <BoxView BackgroundColor="Red"
+                     WidthRequest="10"
+                     HeightRequest="10"
+                     CornerRadius="5"
+                     Margin="5,0,0,0"/>
+            <Label Text="Active"
+                   FontSize="16"
+                   VerticalOptions="Center"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

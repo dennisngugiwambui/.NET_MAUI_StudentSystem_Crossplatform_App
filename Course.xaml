@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentSystem.Course"
+             Title="Course">
+    <ScrollView>
+        <NavigationPage.TitleView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                <ImageButton Source="ic_back" BackgroundColor="Transparent" Clicked="OnBackButtonClicked"/>
+            </StackLayout>
+        </NavigationPage.TitleView>
+        <StackLayout BackgroundColor="#E74C3C" Padding="16">
+            <!-- Fancy Top Side -->
+            <Frame HeightRequest="128" BackgroundColor="#4CAF50" CornerRadius="8" HasShadow="False">
+                <StackLayout>
+                    <Label Text="Welcome, Student" TextColor="White" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label Text="{Binding TodayDate}" TextColor="White" FontSize="16" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#C0392B" HeightRequest="50" CornerRadius="8" Padding="10" Margin="0,0,0,10">
+                <Label Text="Course Details" TextColor="White" FontSize="20" FontAttributes="Bold"/>
+            </Frame>
+
+            <!-- Form Section -->
+            <Frame BackgroundColor="White" CornerRadius="8" HasShadow="True" Margin="10,0,10,10">
+                <StackLayout Padding="16">
+
+                    <!--Status -->
+                    <Label Text="Status" TextColor="#E74C3C" FontSize="16"/>
+                    <Picker x:Name="statusEntry" Title="--select--" Margin="0,0,0,16">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>in progress</x:String>
+                                <x:String>completed</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <!--start date -->
+                    <Label Text="Start Date" TextColor="#E74C3C" FontSize="16"/>
+                    <DatePicker x:Name="startDatePicker" Margin="0,0,0,16" DateSelected="OnStartDateSelected"/>
+
+                    <!--start date -->
+                    <Label Text="End Date" TextColor="#E74C3C" FontSize="16"/>
+                    <DatePicker x:Name="endDatePicker" Margin="0,0,0,16" DateSelected="OnEndDateSelected"/>
+
+
+
+
+
+                    <!--Instructors Name -->
+                    <Label Text="Instructor's Name" TextColor="#E74C3C" FontSize="16" />
+                    <Entry x:Name="instructorsName" Placeholder="Enter Instructors Name"  Margin="0,0,0,16"/>
+
+
+                    <!--Instructors Phone -->
+                    <Label Text="Instructor's Phone" TextColor="#E74C3C" FontSize="16" />
+                    <Entry x:Name="instructorsPhone" Placeholder="Enter Instructors Phone" Keyboard="Numeric"  Margin="0,0,0,16"/>
+
+                    <!--Instructors Name -->
+                    <Label Text="Instructor's Email" TextColor="#E74C3C" FontSize="16" />
+                    <Entry x:Name="instructorsEmail" Placeholder="Enter Instructors Email" Keyboard="Email" Margin="0,0,0,16"/>
+
+                    <!-- Notification -->
+                    <Label Text="IS Notification ON?" TextColor="#E74C3C" FontSize="16" />
+                    <StackLayout Orientation="Horizontal" Margin="0,0,0,16">
+                        <RadioButton x:Name="notificationOnRadioButton" Content="On" />
+                        <RadioButton x:Name="notificationOffRadioButton" Content="Off" />
+                    </StackLayout>
+
+                    <!--course Name -->
+                    <Label Text="Course Name" TextColor="#E74C3C" FontSize="16"/>
+                    <Picker x:Name="courseNameEntry" Title="Select Course Name" Margin="0,0,0,16">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Intro to Communication</x:String>
+                                <x:String>Web Development foundations</x:String>
+                                <x:String>Technical Communication</x:String>
+                                <x:String>Ethics in Technology</x:String>
+                                <x:String>IT foundation</x:String>
+                                <x:String>IT applications</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    
+                    <!-- Save Button -->
+                    <Button Text="Save" x:Name="Save" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="8" Clicked="OnSaveClicked"/>
+                </StackLayout>
+            </Frame>
+
+
+
+
+            <!-- Record Section -->
+            <Frame CornerRadius="8" HasShadow="True" Margin="10,0,10,10">
+                <Grid>
+                    <CollectionView x:Name="courseCollectionView">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame CornerRadius="8" HasShadow="True" Margin="0,0,0,10">
+                                    <StackLayout Padding="10">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Row="0" Grid.Column="0" Text="Status:" FontAttributes="Bold" />
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Status}" />
+
+                                            <Label Grid.Row="1" Grid.Column="0" Text="StartDate:" FontAttributes="Bold" />
+                                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding StartDate}" />
+
+                                            <Label Grid.Row="2" Grid.Column="0" Text="EndDate:" FontAttributes="Bold" />
+                                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding EndDate}" />
+
+                                            <Label Grid.Row="3" Grid.Column="0" Text="CourseName:" FontAttributes="Bold" />
+                                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding CourseName}" />
+
+                                            <Label Grid.Row="4" Grid.Column="0" Text="InstructorsName:" FontAttributes="Bold" />
+                                            <Label Grid.Row="4" Grid.Column="1" Text="{Binding InstructorsName}" />
+
+                                            <Label Grid.Row="5" Grid.Column="0" Text="InstructorsPhone:" FontAttributes="Bold" />
+                                            <Label Grid.Row="5" Grid.Column="1" Text="{Binding InstructorsPhone}" />
+
+                                            <Label Grid.Row="6" Grid.Column="0" Text="InstructorsEmail:" FontAttributes="Bold" />
+                                            <Label Grid.Row="6" Grid.Column="1" Text="{Binding InstructorsEmail}" />
+                                        </Grid>
+                                        <!-- Buttons (if needed) -->
+                                        <StackLayout Orientation="Horizontal" Spacing="10">
+                                            <Button Text="Del" BackgroundColor="#E74C3C" TextColor="White" Clicked="OnDeleteClicked" CommandParameter="{Binding CourseName}" />
+                                            <Button Text="Update" BackgroundColor="#3498DB" TextColor="White" Clicked="OnUpdateClicked" CommandParameter="{Binding CourseName}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <!-- Message if no records -->
+                    
+                </Grid>
+            </Frame>
+
+
+
+            <!-- File Upload Section -->
+            <Frame BackgroundColor="White" CornerRadius="8" HasShadow="True" Margin="10,0,10,10">
+                <StackLayout Padding="16">
+                    <Label Text="Upload Course Materials" TextColor="#E74C3C" FontSize="20" FontAttributes="Bold"/>
+
+                    <!-- File Picker -->
+                    <Image x:Name="myImage" />
+                   
+                    <!-- Upload Button -->
+                    <Button Text="Upload" x:Name="Upload" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="8" Clicked="OnUploadClicked"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Display Course Materials Section -->
+            <Frame CornerRadius="8" HasShadow="True" Margin="10,0,10,10">
+                <StackLayout>
+                    <!-- Table Header for Materials -->
+                    <Grid BackgroundColor="#3498DB" Padding="8,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <!-- Add two columns for buttons -->
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Material Name" TextColor="White" FontSize="16" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Grid.Column="0"/>
+                        <Label Text="File Type" TextColor="White" FontSize="16" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Grid.Column="1"/>
+                        <Label Text="" Grid.Column="2"/>
+                        <!-- Empty column for spacing -->
+                    </Grid>
+
+                    <!-- ListView for displaying uploaded materials -->
+                    <ListView x:Name="materialsListView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- Column for "Delete" and "Update" buttons -->
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding CourseName}" Grid.Column="0"/>
+                                        <Label Text="{Binding StartDate}" Grid.Column="1"/>
+                                        <Label Text="{Binding EndDate}" Grid.Column="1"/>
+                                        <Label Text="{Binding NotificationEntry}" Grid.Column="2"/>
+                                        <Label Text="{Binding InstructorsName}" Grid.Column="3"/>
+                                        <Label Text="{Binding InstructorsPhone}" Grid.Column="4"/>
+                                        <Label Text="{Binding InstructorsEmail}" Grid.Column="5"/>
+
+                                        <!-- Delete Button -->
+                                        <Button Text="Del" BackgroundColor="#E74C3C" TextColor="White" Clicked="OnDeleteClicked" CommandParameter="{Binding CourseName}" Grid.Column="6"/>
+
+                                        <!-- Update Button -->
+                                        <Button Text="Update" BackgroundColor="#3498DB" TextColor="White" Clicked="OnUpdateClicked" CommandParameter="{Binding CourseName}" Grid.Column="7"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <!-- Message if no materials uploaded -->
+                    <Label x:Name="materialsLabel" Text="No materials uploaded" TextColor="#777" FontSize="16" Margin="16,8,0,16"/>
+                </StackLayout>
+            </Frame>
+
+
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
