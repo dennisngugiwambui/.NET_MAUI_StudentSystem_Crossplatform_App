@@ -1,4 +1,7 @@
 .NET MAUI
+# This is a student managment system for WGU management.
+
+
 
 ![image](https://github.com/dennisngugiwambui/.NET_MAUI_StudentSystem_Crossplatform_App/assets/112067611/ee6c7ac6-130a-4570-bc64-5cfe94002afd)
 
