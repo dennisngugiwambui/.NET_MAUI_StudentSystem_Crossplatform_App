@@ -19,5 +19,5 @@ I have included a code which looks as shown below. Ensure to have the necessary 
 
 ![image](https://github.com/dennisngugiwambui/.NET_MAUI_StudentSystem_Crossplatform_App/assets/112067611/3927229d-9578-4bfc-94b0-136edb9f19c7)
 
-THIS SYSTEM HELPS IN ADDING COURSES, ASSESMENTS AND TERMS. THERE SHOULD BE TERM 1,2 AND 3
+THIS SYSTEM HELPS IN ADDING COURSES, ASSESMENTS AND TERMS. THERE SHOULD BE TERM 1,2 AND 
 
