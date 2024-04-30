@@ -21,4 +21,3 @@ I have included a code which looks as shown below. Ensure to have the necessary 
 
 THIS SYSTEM HELPS IN ADDING COURSES, ASSESMENTS AND TERMS. THERE SHOULD BE TERM 1,2 AND 3
 
-
