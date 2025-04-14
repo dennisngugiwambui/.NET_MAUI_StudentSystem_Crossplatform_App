@@ -1,4 +1,4 @@
-.NET MAUI
+.NET MAU
 # This is a student managment system for WGU management.
 
 I have included a code which looks as shown below. Ensure to have the necessary packages to run this code .
