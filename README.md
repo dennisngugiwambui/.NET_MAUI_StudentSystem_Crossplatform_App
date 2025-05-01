@@ -1,4 +1,4 @@
-.NET MAUI ANDROID APP Whi
+.NET MAUI ANDROID APP W
 # This is a student managment system for WGU management.
 
 I have included a code which looks as shown below. Ensure to have the necessary packages to run this code.
