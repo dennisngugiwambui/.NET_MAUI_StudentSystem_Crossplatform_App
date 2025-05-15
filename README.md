@@ -1,4 +1,4 @@
-.NET MAUI ANDROID APP
+.NET MAUI ANDROID APPL
 
 
 # This is a student managment system for WGU management.
