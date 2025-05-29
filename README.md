@@ -1,6 +1,6 @@
 .NET MAUI ANDROID APP.
 
-dfhfhg
+dfhf
 
 
 # This is a student managment system for WGU management..
