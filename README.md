@@ -1,4 +1,3 @@
-
 .NET MAUI ANDROID APP.
 
 
