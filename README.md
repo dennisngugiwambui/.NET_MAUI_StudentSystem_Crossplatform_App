@@ -1,5 +1,4 @@
 .NET MAUI ANDROID APP.
-
 gh
 
 
