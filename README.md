@@ -3,7 +3,6 @@
 
 
 
-
 # This is a student managment system for WGU management..
 
 
